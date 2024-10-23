@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Pokemon {
     imgSrc?: string; 
     name: string;    
@@ -9,7 +7,7 @@ interface PokemonCardProps {
     pokemon: Pokemon;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => { 
+const PokemonCard = ({ pokemon }: PokemonCardProps) => { 
     return (
         <figure>
             {pokemon.imgSrc 
@@ -22,3 +20,4 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
 };
 
 export default PokemonCard;
+
