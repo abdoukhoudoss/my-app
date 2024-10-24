@@ -1,15 +1,22 @@
 interface NavBarProps {
-  onPrevious: () => void;
-  onNext: () => void;
+  pokemonList: PokemonList[]
+  setPokemonIndex: (index: number) => void
 }
 
-const NavBar = (props: NavBarProps) => {
+interface PokemonList {
+  name: string,
+  imgSrc?: string
+}
+
+const NavBar = ({ setPokemonIndex, pokemonList }: NavBarProps) => {
   return (
     <div className="navbar">
-      <button onClick={props.onPrevious}>Précédent</button>
-      <button onClick={props.onNext}>Suivant</button>
+      {pokemonList.map((pokemon, index) => (
+        <button key={index} onClick={() => setPokemonIndex(index)}>
+          {pokemon.name}
+        </button>
+      ))}
     </div>
   );
 };
-
 export default NavBar;
